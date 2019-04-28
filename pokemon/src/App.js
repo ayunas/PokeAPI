@@ -8,10 +8,9 @@ import Pokemon from './Pokemon';
 function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <button onClick={() => props.fetchPokemons('https://pokeapi.co/api/v2/pokemon/')}>Fetch Pokemon</button>
-        <Pokemon />
-      </header>
+      <img src="https://media0dk-a.akamaihd.net/79/17/f903f1c5d19528ef34fddeaaa681886a.jpg" alt="pokemon"/>
+      <button onClick={() => props.fetchPokemons('https://pokeapi.co/api/v2/pokemon/')}>Fetch Pokemon</button>
+      <Pokemon />
     </div>
   );
 }

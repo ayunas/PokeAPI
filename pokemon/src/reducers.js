@@ -21,7 +21,8 @@ function reducer(state = {pokemons : []},action) {
                 loading: false,
                 aPokee : {
                     name : action.payload.name,
-                    avatar : action.payload.avatar
+                    avatar : action.payload.avatar,
+                    clicked : action.payload.clicked
                 }
             }
 

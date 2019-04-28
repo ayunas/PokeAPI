@@ -3,29 +3,39 @@ import {connect} from 'react-redux'
 
 import {detailPokemon} from './actions';
 
-function Pokemon(props) {
-    if (props.pokemons[0]) {
-        console.log(props.pokemons[0].url);
-    }
-  return (
-    <figure>
-        <img src="#" alt="pokemon"/>
-        {props.pokemons.map( (pokemon, i) => (
-                    <div>
-                        <figcaption key={i}> {pokemon.name} </figcaption>
-                        <button onClick={() => props.detailPokemon(pokemon.url)}>Info</button>
-                    </div>
-                )
-            )
+class Pokemon extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            clicked : false
         }
-    </figure> 
-  )
+    }
+    
+    render() {
+        return (
+            <figure>
+                {this.props.pokemons.map( (pokemon, i) => (
+                            <div>
+                                <figcaption key={i} onClick={() => {
+                                    this.setState({clicked : !this.state.clicked});
+                                    this.props.detailPokemon(pokemon.url, this.state.clicked);
+                                    }}> {pokemon.name} </figcaption>
+                                {/* <button onClick={() => props.detailPokemon(pokemon.url)}>Show</button> */}
+                                {this.props.aPokee && <div><img src={this.props.aPokee.avatar} /></div> }
+                            </div>
+                        )
+                    )
+                }
+            </figure> 
+          )
+    }
 }
 
 
 function mapStateToProps(state) {
     return {
-        pokemons : state.pokemons
+        pokemons : state.pokemons,
+        aPokee : state.aPokee
     }
 }
 

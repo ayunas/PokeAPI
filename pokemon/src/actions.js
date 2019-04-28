@@ -16,10 +16,11 @@ export function fetchPokemons(url) {
 }
 
 
-export function detailPokemon(url) {
-    // console.log('event', e.target.value);
+export function detailPokemon(url, clicked) {
+
     console.log('detailPokemon has been triggered');
     console.log('url', url);
+    
 
     return (dispatch) => {
         dispatch({type: 'LOADING'});
@@ -30,9 +31,13 @@ export function detailPokemon(url) {
                 {type: "DETAIL", 
                 payload: { 
                     name : res.data.name,
-                    avatar: res.data.sprites.front_default
+                    avatar: res.data.sprites.front_default,
+                    clicked : clicked
                 }
             });
+        })
+        .catch( err => {
+            console.log(err);
         })
     }
 }
