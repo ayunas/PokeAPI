@@ -21,7 +21,7 @@ class Pokemon extends React.Component {
                                     this.props.detailPokemon(pokemon.url, this.state.clicked);
                                     }}> {pokemon.name} </figcaption>
                                 {/* <button onClick={() => props.detailPokemon(pokemon.url)}>Show</button> */}
-                                {this.props.aPokee && <div><img src={this.props.aPokee.avatar} /></div> }
+                                {this.props.aPokee.clicked && <div><img src={this.props.aPokee.avatar} /></div> }
                             </div>
                         )
                     )

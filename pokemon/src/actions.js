@@ -15,13 +15,11 @@ export function fetchPokemons(url) {
     }
 }
 
-
 export function detailPokemon(url, clicked) {
 
     console.log('detailPokemon has been triggered');
     console.log('url', url);
     
-
     return (dispatch) => {
         dispatch({type: 'LOADING'});
         axios.get(url)

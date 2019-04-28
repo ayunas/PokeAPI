@@ -1,5 +1,14 @@
 
-function reducer(state = {pokemons : []},action) {
+const initial = {
+    pokemons : [],
+    aPokee : {
+        name : '',
+        avatar : '',
+        clicked : false
+    }
+}
+
+function reducer(state=initial ,action) {
 
     switch(action.type) {
         case "LOADING":
