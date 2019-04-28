@@ -12,16 +12,18 @@ class Pokemon extends React.Component {
     }
     
     render() {
+        console.log(this.props.aPokee.clic)
         return (
             <figure>
+                {/* {this.props.aPokee.clicked && <div><img className="pokee" src={this.props.aPokee.avatar} alt='avatar'/></div> } */}
                 {this.props.pokemons.map( (pokemon, i) => (
                             <div>
+                                <img className="pokee" src={this.props.aPokee.avatar} alt='avatar'/>
                                 <figcaption key={i} onClick={() => {
                                     this.setState({clicked : !this.state.clicked});
                                     this.props.detailPokemon(pokemon.url, this.state.clicked);
-                                    }}> {pokemon.name} </figcaption>
-                                {/* <button onClick={() => props.detailPokemon(pokemon.url)}>Show</button> */}
-                                {this.props.aPokee.clicked && <div><img src={this.props.aPokee.avatar} /></div> }
+                                    }}> {pokemon.name} 
+                                </figcaption>
                             </div>
                         )
                     )
