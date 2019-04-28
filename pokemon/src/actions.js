@@ -6,6 +6,7 @@ export function fetchPokemons(url) {
         dispatch({type: "LOADING"});
         axios.get(url)
              .then( res => {
+                 
                  console.log("API response: ", res.data);
                  dispatch({type: "FETCHED", payload: res.data.results})
              })
