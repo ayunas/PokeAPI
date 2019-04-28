@@ -14,6 +14,16 @@ function reducer(state = {pokemons : []},action) {
                 loading: false,
                 pokemons: action.payload
             }
+        
+        case "DETAIL":
+            return {
+                ...state,
+                loading: false,
+                aPokee : {
+                    name : action.payload.name,
+                    avatar : action.payload.avatar
+                }
+            }
 
         default : 
             return state;

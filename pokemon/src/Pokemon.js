@@ -1,15 +1,27 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {detailPokemon} from './actions';
+
 function Pokemon(props) {
-    console.log("Props.Pokemons", props.pokemons);
+    if (props.pokemons[0]) {
+        console.log(props.pokemons[0].url);
+    }
   return (
     <figure>
         <img src="#" alt="pokemon"/>
-        {props.pokemons.map( pokemon => <figcaption>{pokemon.name}</figcaption>)}
-    </figure>
+        {props.pokemons.map( (pokemon, i) => (
+                    <div>
+                        <figcaption key={i}> {pokemon.name} </figcaption>
+                        <button onClick={() => props.detailPokemon(pokemon.url)}>Info</button>
+                    </div>
+                )
+            )
+        }
+    </figure> 
   )
 }
+
 
 function mapStateToProps(state) {
     return {
@@ -18,5 +30,5 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps,null)(Pokemon);
+export default connect(mapStateToProps,{detailPokemon})(Pokemon);
 
